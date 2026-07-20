@@ -7,10 +7,10 @@ dotenv.config();
 
 
 const app = express();
+app.use(express.json()); // <-- add this line (importatnt note: must be before the routes )
+  
 
 app.use("/api/auth", authRoutes)
-
-app.use(express.json())
 
 
 const PORT = process.env.PORT;
