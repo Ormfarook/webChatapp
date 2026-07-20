@@ -46,7 +46,7 @@ export const signup = async (req, res) => {
       }
     }catch (error) {
       console.log("error in signup controller", error.message);
-      res.status(500).json({message: "Internal server error"})
+      res.status(500).json({message: "Internal server error signup"})
 
   }
   
@@ -75,7 +75,7 @@ export const login  = async (req, res) => {
   }
   catch(error){
   console.log("error in login controller", error.message);
-    res.status(500).json({message: "Internal server error"})
+    res.status(500).json({message: "Internal server error login"})
   }
 }
 
@@ -87,7 +87,7 @@ export const logout = (req, res) => {
   }
   catch(error){
 console.log("error in logout controller", error.message);
-    res.status(500).json({message: "Internal server error"})
+    res.status(500).json({message: "Internal server error logout"})
   }
 }  
 
@@ -106,6 +106,17 @@ export const updateProfile = async (req, res) => {
   }
   catch(error){
     console.log("error in profilePic update ", error.message);
-    res.status(500).json({message: "Internal server error"})
+    res.status(500).json({message: "Internal server error profilePic"})
   }
+}
+
+export const checkAuth = (req, res)=> {
+  try{
+    res.status(200).json(req.user);
+  }
+  catch(error){
+    console.log("checkAuth controller error ", error.message);
+    res.status(500).json({message: "Internal server error checkAuths"})
+  }
+
 }
