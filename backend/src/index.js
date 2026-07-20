@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.route.js';
+import cookieParser from "cookie-parser"
 
 import {connectDB} from './lib/db.js';
 dotenv.config();
@@ -8,7 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json()); // <-- add this line (importatnt note: must be before the routes )
-  
+app.use(cookieParser());
 
 app.use("/api/auth", authRoutes)
 
